@@ -1,0 +1,237 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border-style: doubl;
+}
+
+header{
+    background-color: aqua;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    width: 100%;
+}
+
+img{
+    width: 80px;
+    height: auto;
+    display: block;
+    margin-top: 50px;
+    border-radius: 30%;
+}
+
+.signup{
+    background-color: rgb(248, 247, 247);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 50px;
+    flex-direction: column;
+    width: 90%;
+}
+
+.email{
+    border-style: groove;
+    border-radius: 15px;
+    height: 40px;
+    width: 100%;
+    margin-top: 0px;
+    padding-left: 10px;
+}
+
+.password{
+    border-style: groove;
+    border-radius: 15px;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 0px;
+    padding-left: 10px;
+}
+
+.forgotten{
+    width: 80%;
+    display: flex;
+    justify-content: end;
+    margin-top: 10px
+}
+
+.signin-button{
+    width: 90%;
+    height: 30px;
+    margin-top: 30px;
+    border-radius: 20px;
+    color: aliceblue;
+    background-color: rgb(4, 4, 39);
+
+}
+
+.continue-with{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+    gap: 30px;
+    font-size: 20px;
+    background-color: brow;
+}
+
+.fg{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 5%;
+    align-items: center;
+}
+
+.fb{
+    background-color: rgb(250, 248, 248);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border-style: double;
+}
+
+.google{
+    background-color: rgb(250, 248, 248);
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    border-style: double;
+}
+
+.or{
+    margin-top: 40px;
+    font-size: 20px;
+}
+
+
+
+/* register html */
+
+.text{
+    width: 100%;
+    height: 40px;
+    border-radius: 16px;
+    padding: 10px;
+
+}
+
+.register{
+    width: 90%;
+    height: 30px;
+    margin-top: 30px;
+    border-radius: 20px;
+    color: aliceblue;
+    background-color: rgb(4, 4, 39);
+}
+
+.terms{
+    margin-top: 10%;
+    width: 90%;
+}
+
+/* home.html */
+
+.bar{display: flex;
+    justify-content: center;
+    gap: 0%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffffff;
+}
+
+.marketplace{
+    position: fixed;
+    top: 10px;
+    font-size: 19px;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-left: 10px;
+    background-color: rgb(252, 252, 252);
+    
+}
+
+.feed{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(2,1fr);
+    gap: 2px;
+    width: 100%;
+    margin: 5px;
+    margin-top: 100px;
+    padding: 10px;
+    background-colo: rgb(26, 21, 15);
+
+}
+
+.post{
+    background-color: rgb(184, 187, 185);
+    padding: 15px;
+    border-radius: 10px;
+
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+input, button{
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.post-button{
+    background: #4aa1e7;
+    border: none;
+    cursor: pointer;
+}
+
+.bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    height: 50px;
+    position: fixed;
+    padding: 10px;
+    border-radius: 100px;
+    bottom: 20px;
+    background-color: rgb(61, 61, 66);
+}
+
+button{
+    background: transparent;
+    border: none;
+
+}
+
+.bottom i{
+    
+}
