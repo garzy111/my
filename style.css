@@ -5,14 +5,13 @@
 }
 
 body{
+    font-family: Arial;
     background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 100%;
-    border-style: doubl;
 }
 
 header{
@@ -23,16 +22,18 @@ header{
     width: 100%;
 }
 
-img{
+.sign-img{
     width: 80px;
     height: auto;
     display: block;
     margin-top: 50px;
     border-radius: 30%;
+    align-items: center;
+    justify-content: center;
 }
 
 .signup{
-    background-color: rgb(248, 247, 247);
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,11 +61,16 @@ img{
     padding-left: 10px;
 }
 
+.forgottenpass{
+    width: 90%;
+    background-color: white;
+}
+
 .forgotten{
-    width: 80%;
     display: flex;
     justify-content: end;
-    margin-top: 10px
+    margin-top: 10px;
+    text-decoration: none;
 }
 
 .signin-button{
@@ -151,47 +157,85 @@ img{
 
 /* home.html */
 
-.bar{display: flex;
-    justify-content: center;
-    gap: 0%;
+.bar{
+    display: flex;
+    justify-content: space-evenly;
+    gap: 20px;
     position: fixed;
     top: 0;
-    width: 100%;
-    padding: 10px;
+    margin-top: 0;
+    width:100%;
     background-color: #ffffff;
 }
 
-.marketplace{
+.searchbar{
+    flex: 1;
+    padding: 8px;
+    width: 40px;
+}
+
+.notification{
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.notification-badge{
+    position: absolute;
+    top: -1px;
+    right: 10px;
+    color: white;
+    background: #fd0000;
+    font-size: 10px;
+    padding: 2px 5px;
+    border-radius: 50%;
+}
+
+.home{
     position: fixed;
-    top: 10px;
+    top: 15px;
     font-size: 19px;
-    justify-content: flex-start;
-    width: 100%;
-    margin-top: 40px;
-    padding-top: 20px;
-    padding-left: 10px;
-    background-color: rgb(252, 252, 252);
+    display: flex;
+    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
+    width: 190px;
+    padding: 5px;
+    margin-top: 32px;
+    border-radius: 50px;
+    box-shadow: 0 3px 6px;
+    background: white;
     
+}
+
+.home button{
+    background: transparent;
+    border: none;
+    padding: 1px;
+    font-size: 12px;
+    font-style: bold;
+    cursor: pointer;
 }
 
 .feed{
     display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: repeat(2,1fr);
-    gap: 2px;
-    width: 100%;
-    margin: 5px;
-    margin-top: 100px;
-    padding: 10px;
-    background-colo: rgb(26, 21, 15);
-
+    grid-template-columns: 1fr;
+    gap: 1px;
+    margin-top: 85px;
+    width: 98%;
+    background: #b3b3b3;
+    
 }
 
 .post{
-    background-color: rgb(184, 187, 185);
+    background-color: white;
     padding: 15px;
-    border-radius: 10px;
+    font-size: 20px;
+    border-radius: 1px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 
 }
 
@@ -199,21 +243,22 @@ form{
     display: flex;
     flex-direction: column;
     gap: 10px;
+    word-wrap: break-wor
 }
 
-input, button{
+input{
     padding: 10px;
     border-radius: 6px;
     border: 1px solid #ccc;
 }
 
-.post-button{
+.postbutton{
     background: #4aa1e7;
     border: none;
     cursor: pointer;
 }
 
-.bottom {
+.bottom{
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -223,15 +268,215 @@ input, button{
     padding: 10px;
     border-radius: 100px;
     bottom: 20px;
-    background-color: rgb(61, 61, 66);
+    box-shadow: 0 5px 20px;
+    background-color: rgb(238, 238, 238);
 }
 
-button{
+.bottom button{
     background: transparent;
     border: none;
+}
+
+.bottom button :hover{
+    color: #4d4949;
+}
+
+.bottom button :active{
+    pointer-events: painted;
+    color: #4aa1e7;
+    background: #fd0000;
+    border: solid;
+}
+
+
+/* PROFILE */
+
+.profile-container{
+    width: 100%;
+    justify-content: flex-start;
+    background-color: rgb(236, 235, 235);
+    
+}
+
+.profile-header{
+    padding: 20p;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    height: 200px;
+    background-color: white;
+}
+
+.profile-info{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0px;
 
 }
 
-.bottom i{
-    
+.profile-img{
+    width: 70px;
+    display: block;
+    margin-top: 50p;
+    border-radius: 30%;
+    align-items: center;
+    justify-content: center;
+}
+
+.follows{
+    font-size: small;
+    padding-top: 10px;
+}
+
+.p{
+    font-size: 9px;
+}
+
+.profile-tag{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    justify-content: space-around;
+    margin-top: 20px;
+    height: 100px;
+}
+
+.properties{
+    border: #edeff1;
+    border-style: solid;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+    font-size: 13px;
+    background-color: #edeff1;
+}
+
+.investment{
+     border: #edeff1;
+    border-style: solid;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+    font-size: 13px;
+    background-color: #edeff1;
+}
+
+.roi{
+     border: #edeff1;
+    border-style: solid;
+    width: 100px;
+    height: 100px;
+    border-radius: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 10px;
+    background-color: #edeff1;
+}
+
+.profile-page{
+    border: #edeff1;
+    width: 190px;
+    height: 30px;
+    display: flex;
+    border-style: solid;
+    border-radius: 30px;
+    justify-content: center;
+    align-items: center;
+    font-size: 0px;
+    margin-top: 10px;
+    gap: 20%;
+    background-color: #edeff1;
+}
+
+.home-button{
+    cursor: pointer;
+    background: transparent;
+    border-radius: 10px;
+    padding: 2px;
+}
+
+.profile-settings{
+    margin-top: 10px;
+    width: 90%;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.kyc{
+    border: #ffffff;
+    height: 50px;
+    display: flex;
+    padding: 10px;
+    border-style: solid;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #edeff1;
+}
+
+.mydao{
+    border: #edeff1;
+    height: 50px;
+    display: flex;
+    padding: 10px;
+    border-style: solid;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #edeff1;
+}
+
+.settings{
+    border: #edeff1;
+    height: 50px;
+    display: flex;
+    padding: 10px;
+    border-style: solid;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #edeff1;
+}
+
+.support{
+    border: #edeff1;
+    height: 50px;
+    display: flex;
+    padding: 10px;
+    border-style: solid;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #edeff1;
+}
+
+.log-out{
+    display: flex;
+    border: #edeff1;
+    width: 90%;
+    height: 50px;
+    display: flex;
+    padding: 10px;
+    margin-top: 60px;
+    border-style: solid;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: space-between;
+    bottom: 190px;
+    color: #fd0000;
+    background-color: #edeff1;
 }

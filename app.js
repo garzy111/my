@@ -38,7 +38,7 @@ form.addEventListener('submit', function(e){
 if(feed){
     let post = JSON.parse(localStorage.getItem('post')) ||[];
 
-    post.forEach(posts=>{
+    post.forEach(post=>{
         const newpost= document.createElement('div');
         newpost.classList.add('post');
        
@@ -67,6 +67,6 @@ function gowallet(){
     window.location.href= 'wallet.html';
 }
 
-function gouser(){
-    window.location.href= 'user.html';
+function goprofile(){
+    window.location.href= 'profile.html';
 }

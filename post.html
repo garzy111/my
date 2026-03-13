@@ -13,15 +13,19 @@
         <input type="text" id="price" placeholder="price">
         <input type="text" id="details" placeholder="details">
         <input type="file" id="addimage" accept="img/*">
-        <button type="submit" class="post-button">post</button>
+        <button type="submit" class="postbutton">post</button>
     </form>
+
+    <button onclick="localStorage.clear(); location.reload();">
+        clear
+    </button>
 
      <nav class="bottom">
         <button onclick="gohome()"><i class="fas fa-home"></i></button>
         <button onclick="gochat()"><i class="fas fa-comment"></i></button>
         <button onclick="gopost()"><i class="fas fa-add"></i></button>
         <button onclick="gowallet()"><i class="fas fa-wallet"></i></button>
-        <button onclick="gouser()"><i class="fas fa-user"></i></button>
+        <button onclick="goprofile()"><i class="fas fa-user"></i></button>
     </nav>    
 
     
