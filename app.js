@@ -6,67 +6,84 @@ signinbtn.addEventListener('click',  function(){
 });}
 
 
-const form = document.getElementById('vacancyform');
-const feed = document. querySelector('.feed');
+const feed = document.querySelector('.feed');
 
+if(feed){
+    let post= JSON.parse(localStorage.getItem('post'))|| [];
+
+    post.forEach(function(post){
+        const postDIV= document.createElement('div');
+        postDIV.className='post';
+
+        postDIV.onclick=function(){
+            localStorage.setItem('selectedPostIndex', index);
+            window.location.href='details.html'
+        };
+
+        postDIV.innerHTML = `
+        <div class="image-container">
+         <img src="${post.image}" style="width: 100%">
+        </div>
+
+        <div class="card-tag">
+         <div class="card-details">
+          <h4 class="price">${post.price} /month.</h4>
+          <p class="details">${post.details}.</p>
+         </div> 
+         <p class="location">${post.location}</p>
+        </div> 
+        `;
+
+        feed.appendChild(postDIV);
+
+        console.log('Posts', post);
+    });
+}
+
+const form = document.getElementById('vacancyform');
 if(form){
 form.addEventListener('submit', function(e){
     e.preventDefault();
 
     const price= document.getElementById('price').value;
     const details= document.getElementById('details').value;
-    const addimage = document.getElementById('addimage').value;
+    const location= document.getElementById('location').value;
+    const file = document.getElementById('addimage').files[0];
 
-    let post =JSON.parse( localStorage.getItem('post'))|| [];
-    post.push({price,details,addimage});
-    localStorage.setItem('post', JSON.stringify(post));
+    const reader = new FileReader();
 
-    const newpost= document.createElement('div');
-    newpost.classList.add('post');
+    reader.onload=function(){
+        let Posts= JSON.parse(localStorage.getItem('post'))||[];
 
-    newpost.innerHTML=
-    `<h4>${price}</h4>
-    <p>${details}</p>
-    <p>${addimage}</p>`;
+        Posts.push({
+            price: price,
+            details: details,
+            location: location,
+            image: reader.result,
+        });
 
-    if(feed){
-    feed.appendChild(newpost);}
-    form.reset();
-})
-}
+        localStorage.setItem('post', JSON.stringify(Posts));
+        form.reset();
+        window.location.href= 'home.html';
+    };
 
-if(feed){
-    let post = JSON.parse(localStorage.getItem('post')) ||[];
+    reader.readAsDataURL(file);});}
 
-    post.forEach(post=>{
-        const newpost= document.createElement('div');
-        newpost.classList.add('post');
-       
-        newpost.innerHTML=
-        `<h4>${post.price}<h4>
-        <p>${post.details}<p>
-        <p>${post.addimage}</p>`;
 
-        feed.appendChild(newpost);
-    })
-}
+   
 
 function gohome(){
-    window.location.href= 'home.html';
-}
+    window.location.href= 'home.html'};
 
 function gochat(){
-    window.location.href= 'chat.html';
-}
+    window.location.href= 'chat.html'};
 
 function gopost(){
-    window.location.href= 'post.html';
-}
+    window.location.href= 'post.html'};
 
 function gowallet(){
-    window.location.href= 'wallet.html';
-}
+    window.location.href= 'wallet.html'
+};
 
 function goprofile(){
-    window.location.href= 'profile.html';
-}
+    window.location.href= 'profile.html'}
