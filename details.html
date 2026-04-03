@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel=" stylesheet" href="style.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <title>My APP</title>
+    </head>
+
+    <body>
+        <div class="details-container">
+            <nav class="details-nav"><button onclick="window.history.back()">
+            Back to feed</button></nav>
+
+            <div class="hero-section"><img id="display-img" src=""></div>
+
+    <section class="info-section">
+        <div class="price-row">
+         <h3 id="display-price"></h3>
+         <span class="status-badge">for rentss</span> 
+        </div>
+
+        <h4 id="display-location"></h4>
+
+        <hr>
+
+        <div class="description-box">    
+         <h4>Description</h4>
+         
+
+         <div class="extra-details">
+            <div class="extra-item">
+                <i class="fas fa-bed"></i>
+            <p>Bedroom(s)<strong> :</strong> <span id="res-bedroom"></span></p>
+            </div>
+
+            <div class="extra-item">
+                <i class="fas fa-bath"></i>
+            <p>washroom(s):<span id="res-washroom"></span></p>
+            </div>
+
+            <div class="extra-item">
+                <i class="fas fa-map-marker-alt"></i>
+            <p>Location : <span id="res-location"></span></p>
+            </div>
+            
+         </div>
+        </div>
+    </section>
+
+             
+         <section class="gallery-section">
+            <h4>Property Gallery</h4>
+
+             <!--<p id="display-desc"></p>-->  
+             <div id="image-gallery" class="gallery-grid"></div>
+             
+         </section>   
+         </div>
+
+         <button type="button" class="book-button" onclick="book()">BOOK</button>
+        
+
+        <script src="details.js"></script>
+    </body>

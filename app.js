@@ -1,76 +1,90 @@
-const signinbtn= document.getElementById('signinbtn');
-
-if(signinbtn){
-signinbtn.addEventListener('click',  function(){
-    window.location.href= 'home.html'
-});}
-
-
-const feed = document.querySelector('.feed');
-
-if(feed){
-    let post= JSON.parse(localStorage.getItem('post'))|| [];
-
-    post.forEach(function(post){
-        const postDIV= document.createElement('div');
-        postDIV.className='post';
-
-        postDIV.onclick=function(){
-            localStorage.setItem('selectedPostIndex', index);
-            window.location.href='details.html'
-        };
-
-        postDIV.innerHTML = `
-        <div class="image-container">
-         <img src="${post.image}" style="width: 100%">
-        </div>
-
-        <div class="card-tag">
-         <div class="card-details">
-          <h4 class="price">${post.price} /month.</h4>
-          <p class="details">${post.details}.</p>
-         </div> 
-         <p class="location">${post.location}</p>
-        </div> 
-        `;
-
-        feed.appendChild(postDIV);
-
-        console.log('Posts', post);
-    });
+const signInBtn =document.getElementById('signinbtn');
+if (signInBtn){
+    signInBtn.onclick = function(){location.href = 'home.html'}
 }
 
-const form = document.getElementById('vacancyform');
-if(form){
-form.addEventListener('submit', function(e){
-    e.preventDefault();
 
+function savePost(){
     const price= document.getElementById('price').value;
-    const details= document.getElementById('details').value;
-    const location= document.getElementById('location').value;
-    const file = document.getElementById('addimage').files[0];
+    const details = document.getElementById('details').value;
+    const location = document.getElementById('location').value;
+    const washrooms = document.getElementById('washrooms').value;
+    const imageInput = document.getElementById('addimage');
 
+    const files = Array.from(imageInput.files); 
+
+    if(!price|| !details|| !location|| files.length===0){
+        alert('fill in all form');
+        return
+    }
+
+    const imagePromises = files.map(file=>{
+        return new Promise((resolve)=>{
     const reader = new FileReader();
+    reader.onload = (e) => resolve(e.target.result);
+        reader.readAsDataURL(file);
 
-    reader.onload=function(){
-        let Posts= JSON.parse(localStorage.getItem('post'))||[];
-
-        Posts.push({
-            price: price,
-            details: details,
-            location: location,
-            image: reader.result,
-        });
-
-        localStorage.setItem('post', JSON.stringify(Posts));
-        form.reset();
-        window.location.href= 'home.html';
+    });
+}) 
+Promise.all(imagePromises).then(base64Images=>{
+    const newPost = {
+        price:'$'+ price + '/month', 
+        details:'' + details,
+       // bedrooms: bedrooms,
+        washrooms: washrooms,
+      //  porch: porch,
+        location,
+        images:base64Images
     };
+    
+    let posts = JSON.parse(localStorage.getItem('allPosts'))||[];
+    posts.push(newPost);
 
-    reader.readAsDataURL(file);});}
+    localStorage.setItem('allPosts', JSON.stringify(posts));
+    window.location.href='home.html';
+ 
+});
+}
+
+window.onload = function(){
+    const feed = document.querySelector('.feed');
+
+    if (feed){
+    const savedPosts = JSON.parse(localStorage.getItem('allPosts')) ||[];
+
+    if (savedPosts){
+        savedPosts.forEach((postData, index)=>{
+        const postHTML=` 
+    <a href='details.html?id=${index}' class='post-link'>
+        <div class='post'>
+         
+        <section class='prop-card'>
+         <img src='${postData.images[0]}' class='img' >
+         <span class='card-price'><strong><p>${postData.price}</strong></p></span>
+        </section>
+        
+      <div class='card-details'> 
+         <p><i class='fas fa-bed'></i>
+         ${postData.details}</p>
+         <p class='wash'>
+         <i class='fas fa-bath'></i>
+         ${postData.washrooms}</p>
+         </div>
+         
+         <p class='location'><i class='fas fa-map-marker-alt'>
+         </i>${postData.location}</p>
+         </div>
+      </div>
+    </a>`;
+
+         feed.innerHTML = postHTML + feed.innerHTML;
+        });
+    }
+}
+
+}
 
 
-   
 
 function gohome(){
     window.location.href= 'home.html'};
@@ -82,8 +96,9 @@ function gopost(){
     window.location.href= 'post.html'};
 
 function gowallet(){
-    window.location.href= 'wallet.html'
-};
+    window.location.href= 'wallet.html'};
 
 function goprofile(){
-    window.location.href= 'profile.html'}
+        window.location.href= 'profile.html'}
+
+

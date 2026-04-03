@@ -11,12 +11,18 @@
     <body>
         
         <form id="vacancyform">
-            <input type="file" id="addimage" accept="image/*">
-            <input type="text" id="price" placeholder="price">
-            <input type="text" id="details" placeholder="details">
+            <input type="file" id="addimage" accept="image/*" multiple>
+            <input type="number" id="price" placeholder="price">
+            <input type="number" id="details" placeholder="Number of rooms">
             <input type="text" id="location" placeholder="Location">
+            <!--<input type="checkbox" id="porch"><label>has-porch?</label>
+            <input type="number" id="bedrooms" placeholder="number of bedrooms">-->
+            <input type="number" id="washrooms" placeholder="number of washrooom">
+           
+
         
-        <button type="submit" class="postbutton">post</button>
+        <button type="button" class="postbutton" onclick="savePost()">
+            post</button>
     </form>
 
     <button onclick="localStorage.clear(); location.reload();">
